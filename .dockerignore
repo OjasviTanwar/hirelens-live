@@ -1,0 +1,11 @@
+.git
+__pycache__/
+*.py[cod]
+*$py.class
+data/audio_samples/*.wav
+data/reports/*.pdf
+*.sqlite3
+*.db
+.DS_Store
+venv/
+.venv/
