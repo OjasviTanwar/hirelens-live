@@ -1,0 +1,309 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+body {
+  min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617 75%);
+  color: #e5e7eb;
+
+  /* ✅ GUARANTEED SPACE FROM TOP */
+  padding-top: 100px;
+}
+
+/* ---------- MAIN SCREEN CARD ---------- */
+.screen {
+  display: none;
+  width: 92%;
+  max-width: 900px;
+
+  /* ✅ CARD POSITION */
+  margin: 0 auto 40px auto;
+
+  padding: 52px 48px;
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(22px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  animation: fadeUp 0.6s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- HEADINGS ---------- */
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.22em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+
+  background: linear-gradient(90deg, #e5e7eb, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 38px;
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 22px;
+  letter-spacing: 2.5px;
+  margin-bottom: 26px;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+/* ---------- QUESTION ---------- */
+.question {
+  font-size: 18px;
+  line-height: 1.65;
+  margin-bottom: 26px;
+  color: #f8fafc;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  padding: 14px 28px;
+  margin: 10px 10px 0 0;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #34d399, #22c55e);
+  color: #020617;
+
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.5);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ---------- SECONDARY BUTTON ---------- */
+button.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+button.secondary:hover {
+  background: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+}
+
+/* ---------- DOMAIN STACK ---------- */
+#domain button {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* ---------- QUESTION COUNTER ---------- */
+#qCounter {
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+/* ---------- ANALYZING LOADER ---------- */
+.loader {
+  display: none;
+  margin-top: 24px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* ---------- REPORT ---------- */
+pre {
+  margin-top: 22px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .screen {
+    padding: 28px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.16em;
+  }
+}
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(160px);
+  opacity: 0.22;
+  z-index: -1;
+  animation: orbFloat 26s ease-in-out infinite;
+}
+
+body::before {
+  background: #38bdf8;
+  top: -160px;
+  left: -160px;
+}
+
+body::after {
+  background: #22c55e;
+  bottom: -160px;
+  right: -160px;
+  animation-delay: 8s;
+}
+
+@keyframes orbFloat {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(80px, 60px); }
+  100% { transform: translate(0, 0); }
+}
+#codeEditor {
+  width: 100%;
+  min-height: 220px;
+  background: #0b1220;
+  color: #e5e7eb;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 16px;
+  outline: none;
+  resize: vertical;
+}
+#codeEditor:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.25);
+}
+
+/* ===== GLASS CARD UPGRADE ===== */
+.screen {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 30px 80px rgba(0,0,0,0.6);
+}
+/* ===== NEON BUTTON EFFECT ===== */
+button:hover {
+  box-shadow:
+    0 0 12px rgba(34,197,94,0.6),
+    0 0 24px rgba(34,197,94,0.25),
+    0 18px 40px rgba(0,0,0,0.6);
+}
+/* ===== PREMIUM CODE EDITOR ===== */
+#codeInput {
+  background: linear-gradient(180deg, #020617, #020617 70%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.03),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+
+#codeInput:focus {
+  border-color: #22c55e;
+  box-shadow:
+    0 0 0 2px rgba(34,197,94,0.3),
+    0 0 18px rgba(34,197,94,0.2);
+}
+/* ===== CODE RESULT STATES ===== */
+#codeResult.success {
+  border-left: 4px solid #22c55e;
+  box-shadow: 0 0 18px rgba(34,197,94,0.25);
+}
+
+#codeResult.error {
+  border-left: 4px solid #ef4444;
+  box-shadow: 0 0 18px rgba(239,68,68,0.25);
+}
+/* ===== SCREEN TRANSITION ===== */
+.screen {
+  animation: screenIn 0.6s ease;
+}
+
+@keyframes screenIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
